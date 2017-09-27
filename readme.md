@@ -6,3 +6,5 @@
 **[ДЗ №1 - Краткая история JavaScript и введение в язык](https://github.com/skiphog/profit-js/blob/master/1.js)**
 
 **[ДЗ №2 - Ветвление, циклы, функции](https://github.com/skiphog/profit-js/blob/master/2.js)**
+
+**[ДЗ №3 - 	Массивы и объекты](https://github.com/skiphog/profit-js/blob/master/3.js)**

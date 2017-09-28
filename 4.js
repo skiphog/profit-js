@@ -25,7 +25,7 @@ var peppa = {
 pig.__proto__ = animal;
 peppa.__proto__ = pig;
 
-console.log(peppa);
+console.log(peppa); // peppa -> pig -> animal
 
 /**
  * 3. Добавить метод "хрюкать"

@@ -17,7 +17,7 @@ class Pig extends Animal {
   }
 
   grunt () {
-    alert('ХРЮ');
+    alert('Хрюкает свинья');
   }
 
 }
@@ -31,10 +31,10 @@ class Peppa extends Pig {
   grunt () {
     switch (this.mood) {
       case 'good':
-        alert('ХРЮ-ХРЮ-ХРЮ');
+        alert('Хрюкает добрая свинья');
         break;
       case 'bad':
-        alert('ХРЮЮЮЮЮ');
+        alert('Хрюкает злая свинья');
         break;
       default:
         super.grunt();
@@ -44,7 +44,7 @@ class Peppa extends Pig {
 }
 
 const peppa = new Peppa('good');
-peppa.grunt(); // ХРЮ-ХРЮ-ХРЮ
+peppa.grunt(); // Хрюкает добрая свинья
 
 peppa.mood = 'bad';
-peppa.grunt(); //ХРЮЮЮЮЮ
+peppa.grunt(); //Хрюкает злая свинья

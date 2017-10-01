@@ -32,9 +32,10 @@ console.log(peppa); // peppa -> pig -> animal
  */
 
 pig.grunt = function () {
-  alert('ХРЮ-ХРЮ');
+  alert('Хрюкает свинья');
 };
 
+// Присутсвие метода grunt() у Peppa
 console.log('grunt' in peppa); // true
 
 /**
@@ -43,19 +44,22 @@ console.log('grunt' in peppa); // true
 peppa.grunt = function () {
   switch (this.mood) {
     case 'good':
-      alert('ХРЮ-ХРЮ-ХРЮ');
+      alert('Хрюкает добрая свинья');
       break;
     case 'bad':
-      alert('ХРЮЮЮЮ');
+      alert('Хрюкает злая свинья');
       break;
     default:
-      alert('ХРЯ');
+      this.__proto__.grunt();
       break;
   }
 };
 
 peppa.mood = 'good';
-peppa.grunt(); // ХРЮ-ХРЮ-ХРЮ
+peppa.grunt(); // Хрюкает добрая свинья
 
-peppa.mood = 'bad'; //ХРЮЮЮЮ
-peppa.grunt();
+peppa.mood = 'bad';
+peppa.grunt(); // Хрюкает злая свинья
+
+peppa.mood = null;
+peppa.grunt(); // используется метод из прототипа

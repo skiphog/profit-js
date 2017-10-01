@@ -44,22 +44,19 @@ console.log('grunt' in peppa); // true
 peppa.grunt = function () {
   switch (this.mood) {
     case 'good':
-      alert('Хрюкает добрая свинья');
+      alert('Хрюкает добрая Пеппа');
       break;
     case 'bad':
-      alert('Хрюкает злая свинья');
+      alert('Хрюкает злая Пеппа');
       break;
     default:
-      this.__proto__.grunt();
+      alert('Хрюкает Пеппа');
       break;
   }
 };
 
 peppa.mood = 'good';
-peppa.grunt(); // Хрюкает добрая свинья
+peppa.grunt(); // Хрюкает добрая Пеппа
 
 peppa.mood = 'bad';
-peppa.grunt(); // Хрюкает злая свинья
-
-peppa.mood = null;
-peppa.grunt(); // используется метод из прототипа
+peppa.grunt(); // Хрюкает злая Пеппа

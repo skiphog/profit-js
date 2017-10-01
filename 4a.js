@@ -14,33 +14,38 @@ function Pig (weight, likeDirt) {
 }
 
 Pig.prototype = Object.create(Animal.prototype);
-Pig.prototype.constructor = Pig;
+//Pig.prototype.constructor = Pig;
 
 Pig.prototype.grunt = function () {
   alert('Хрюкает свинья');
 };
 
-function Peppa (mood) {
+function Peppa () {
   Pig.apply(this, [100, true]);
-  this.mood = mood;
+  this.mood = null;
 }
 
 Peppa.prototype = Object.create(Pig.prototype);
-Peppa.prototype.constructor = Peppa;
+//Peppa.prototype.constructor = Peppa;
 
 Peppa.prototype.grunt = function () {
   switch (this.mood) {
     case 'good':
-      alert('Хрюкает добрая свинья');
+      alert('Хрюкает добрая Пеппа');
       break;
     case 'bad':
-      alert('Хрюкает злая свинья');
+      alert('Хрюкает злая Пеппа');
       break;
     default:
-      //this.getPrototypeOf();
+      alert('Хрюкает Пеппа');
       break;
   }
 };
 
-const peppa = new Peppa('good');
-console.log(peppa);
+var peppa = new Peppa();
+
+peppa.mood = 'good';
+peppa.grunt(); // Хрюкает добрая Пеппа
+
+peppa.mood = 'bad';
+peppa.grunt(); // Хрюкает злая Пеппа

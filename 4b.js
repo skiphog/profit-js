@@ -19,35 +19,33 @@ class Pig extends Animal {
   grunt () {
     alert('Хрюкает свинья');
   }
-
 }
 
 class Peppa extends Pig {
-  constructor (mood) {
+  constructor () {
     super(100, true);
-    this.mood = mood;
+    this.mood = null;
   }
 
   grunt () {
     switch (this.mood) {
       case 'good':
-        alert('Хрюкает добрая свинья');
+        alert('Хрюкает добрая Пеппа');
         break;
       case 'bad':
-        alert('Хрюкает злая свинья');
+        alert('Хрюкает злая Пеппа');
         break;
       default:
-        super.grunt();
+        alert('Хрюкает Пеппа');
         break;
     }
   }
 }
 
-const peppa = new Peppa('good');
-peppa.grunt(); // Хрюкает добрая свинья
+const peppa = new Peppa();
+
+peppa.mood = 'good';
+peppa.grunt(); // Хрюкает добрая Пеппа
 
 peppa.mood = 'bad';
-peppa.grunt(); //Хрюкает злая свинья
-
-peppa.mood = null;
-peppa.grunt(); // Хрюкает просто свинья
+peppa.grunt(); //Хрюкает злая Пеппа

@@ -48,3 +48,6 @@ peppa.grunt(); // Хрюкает добрая свинья
 
 peppa.mood = 'bad';
 peppa.grunt(); //Хрюкает злая свинья
+
+peppa.mood = null;
+peppa.grunt(); // Хрюкает просто свинья

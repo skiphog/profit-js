@@ -10,10 +10,10 @@ class Animal {
 }
 
 class Pig extends Animal {
-  constructor (gender, weight) {
-    super(gender, 4, true, true);
+  constructor (weight, likeDirt) {
+    super('female', 4, true, true);
     this.weight = weight;
-    this.likeDirt = true;
+    this.likeDirt = likeDirt;
   }
 
   grunt () {
@@ -24,7 +24,7 @@ class Pig extends Animal {
 
 class Peppa extends Pig {
   constructor (mood) {
-    super('female', 100);
+    super(100, true);
     this.mood = mood;
   }
 

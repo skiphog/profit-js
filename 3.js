@@ -1,8 +1,8 @@
 'use strict';
 
 function Calculator (number_1, number_2, operation) {
-  this.number_1 = parseInt(number_1);
-  this.number_2 = parseInt(number_2);
+  this.number_1 = +number_1;
+  this.number_2 = +number_2;
   this.operation = operation;
   this.result = null;
 

@@ -1,31 +1,42 @@
 'use strict';
 
-function Animal () {
-  this.gender = 'female';
-  this.legs = 4;
-  this.hasTail = true;
-  this.canSwim = true;
+function Animal (gender, legs, hasTail, canSwim) {
+  this.gender = gender;
+  this.legs = legs;
+  this.hasTail = hasTail;
+  this.canSwim = canSwim;
 }
 
-function Pig () {
-  this.weight = 100;
-  this.likeDirt = true;
+function Pig (weight, likeDirt) {
+  this.weight = weight;
+  this.likeDirt = likeDirt;
+  Animal.apply(this, ['female', 4, true, true]);
 }
 
 Pig.prototype = Object.create(Animal.prototype);
-//Pig.prototype.constructor = Pig;
-
-Pig.grunt = function () {
+Pig.prototype.grunt = function () {
   alert('ХРЮ');
 };
 
 function Peppa (mood) {
   this.mood = mood;
+  Pig.apply(this, [100, true]);
 }
 
-//Peppa.prototype = Object.create(Pig.prototype);
-//Peppa.prototype.constructor = Peppa;
+Peppa.prototype = Object.create(Pig.prototype);
+Peppa.prototype.grunt = function () {
+  switch (this.mood) {
+    case 'good':
+      alert('ХРЮ-ХРЮ-ХРЮ');
+      break;
+    case 'bad':
+      alert('ХРЮЮЮЮЮ');
+      break;
+    default:
+      this.getPrototypeOf();
+      break;
+  }
+};
 
-console.dir(new Pig());
-
-
+const peppa = new Peppa('bad');
+peppa.grunt();

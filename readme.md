@@ -12,3 +12,5 @@
 **[ДЗ №4 - Особенности ООП](https://github.com/skiphog/profit-js/blob/master/work-4.md)**
 
 **[ДЗ №5 - Исключения](https://github.com/skiphog/profit-js/blob/master/work-5.md)**
+
+**[ДЗ №6 - DOM и BOM](https://github.com/skiphog/profit-js/blob/master/6.html)**

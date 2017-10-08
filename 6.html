@@ -20,7 +20,7 @@
     {name: 'Pegout', level: '2000-2008', country: 'Франция', price: '250000-500000'}
   ];
 
-  var li, span, newUl, newLi;
+  var li, span, newUl, newLi,text;
   var ul = document.createElement('ul');
 
   auto.forEach(function (item) {
@@ -28,21 +28,25 @@
     newUl = document.createElement('ul');
 
     newLi = document.createElement('li');
-    newLi.innerHTML = 'Поколение: ' + item.level;
+    text = document.createTextNode('Поколение: ' + item.level);
+    newLi.appendChild(text);
     newUl.appendChild(newLi);
 
     newLi = document.createElement('li');
-    newLi.innerHTML = 'Страна: ' + item.country;
+    text = document.createTextNode('Страна: ' + item.country);
+    newLi.appendChild(text);
     newUl.appendChild(newLi);
 
     newLi = document.createElement('li');
-    newLi.innerHTML = 'Цена: ' + item.price;
+    text = document.createTextNode('Цена: ' + item.price);
+    newLi.appendChild(text);
     newUl.appendChild(newLi);
 
     li.appendChild(newUl);
 
     span = document.createElement('span');
-    span.innerHTML = item.name;
+    text = document.createTextNode(item.name);
+    span.appendChild(text);
     li.insertBefore(span, newUl);
 
     ul.appendChild(li);

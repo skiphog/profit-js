@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>To do list</title>
+</head>
+<body>
+<div>
+    <label><input id="taskText" type="text"></label>
+    <label><input id="taskDate" type="datetime-local"></label>
+    <button id="taskEvent">Добавить</button>
+</div>
+<div>
+    <ul id="tasks"></ul>
+</div>
+<script>
+  function setCookie (key, value) {
+    document.cookie = key + '=' + encodeURIComponent(JSON.stringify(value));
+  }
+
+  function getCookie (key) {
+    var matches = document.cookie.match(new RegExp(
+      '(?:^|; )' + key.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+    ));
+
+    if (matches === null) {
+      return [];
+    }
+
+    return JSON.parse(decodeURIComponent(matches[1]));
+  }
+
+  function showList () {
+    var tasks = document.getElementById('tasks');
+    tasks.innerHTML = '';
+
+    var arr = getCookie('todo');
+    var li, span, a, text;
+
+    arr.forEach(function (item, index) {
+      li = document.createElement('li');
+
+      span = document.createElement('span');
+      text = document.createTextNode(
+        item['taskDate'] + ' - ' + item['taskText']
+      );
+      span.appendChild(text);
+
+      a = document.createElement('a');
+      a.dataset.index = index;
+      text = document.createTextNode('Удалить');
+      a.appendChild(text);
+
+      li.appendChild(a);
+      li.insertBefore(span, a);
+
+      tasks.appendChild(li);
+    });
+  }
+
+  document.getElementById('taskEvent').onclick = function () {
+    var arr = getCookie('todo');
+    var taskDate = document.getElementById('taskDate');
+    var taskText = document.getElementById('taskText');
+
+    try{
+      console.log(new Date(taskDate.value));
+    }catch (e) {
+      console.log(e);
+    }
+
+
+    arr.push({
+      taskDate: taskDate.value,
+      taskText: taskText.value
+    });
+
+    arr.sort(function (a, b) {
+      return new Date(a.taskDate) < new Date(b.taskDate);
+    });
+
+    setCookie('todo', arr);
+    taskDate.value = '';
+    taskText.value = '';
+    showList();
+  };
+
+  document.getElementById('tasks').onclick = function (e) {
+    if (e.target.tagName === 'A') {
+      var arr = getCookie('todo');
+      arr.splice(e.target.dataset.index, 1);
+
+      setCookie('todo', arr);
+      showList();
+    }
+  };
+
+  window.onload = function () {
+    showList();
+  };
+
+</script>
+</body>
+</html>

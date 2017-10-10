@@ -1,4 +1,4 @@
-## Домашняя работа №5
+## Работа №5
 **Исключения**
 
 **[Калькулятор](https://github.com/skiphog/profit-js/blob/master/5.js)**

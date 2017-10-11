@@ -63,20 +63,13 @@
     var taskDate = document.getElementById('taskDate');
     var taskText = document.getElementById('taskText');
 
-    try{
-      console.log(new Date(taskDate.value));
-    }catch (e) {
-      console.log(e);
-    }
-
-
     arr.push({
       taskDate: taskDate.value,
       taskText: taskText.value
     });
 
     arr.sort(function (a, b) {
-      return new Date(a.taskDate) < new Date(b.taskDate);
+      return new Date(a.taskDate) > new Date(b.taskDate);
     });
 
     setCookie('todo', arr);

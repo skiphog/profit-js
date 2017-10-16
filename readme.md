@@ -16,3 +16,5 @@
 **[№6 - DOM и BOM](https://github.com/skiphog/profit-js/blob/master/6.html)**
 
 **[№7 - JQuery(Less)](https://github.com/skiphog/profit-js/blob/master/7.html)**
+
+**[№8 - Node](https://github.com/skiphog/pr-of-it)**

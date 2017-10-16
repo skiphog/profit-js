@@ -30,7 +30,7 @@ Calculator.prototype.calc = function () {
     return this.methods[this.operation](this.number_1, this.number_2);
   } catch (e) {
     console.log(e.message); // допустим что-то логирую
-    throw  e;
+    throw e;
   }
 };
 

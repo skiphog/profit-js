@@ -29,11 +29,16 @@ Calculator.prototype.calc = function () {
   try {
     return this.methods[this.operation](this.number_1, this.number_2);
   } catch (e) {
-    alert(e);
+    console.log(e.message); // допустим что-то логирую
+    throw  e;
   }
 };
 
-var calculator = new Calculator(10, 0, '/');
-
-console.log(calculator.calc()); // alert: Деление на ноль!!!
+try {
+  var calculator = new Calculator(10, 0, '/');
+  var result = calculator.calc();
+  alert('результат: ' + result);
+} catch (e) {
+  alert(e.message); // Деление на ноль
+}
 
